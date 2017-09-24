@@ -1,17 +1,15 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="wrapper col-md-4 col-md-offset-2 col-sm-12">
+    <div class="col-md-12 col-sm-12">
       <p><%= notice %></p>
       <h1>つぶやき一覧</h1>
-      <%= link_to "つぶやく", new_tweet_path, class: 'btn btn-default' %>
-    </div>
-    <div class="wrapper col-md-6 col-sm-12">
-      <% @tweets.each do |tweet| %>
+      <%= link_to "つぶやく", new_tweet_path, class: 'btn btn-primary' %>
+      <% @tweets.reverse_each do |tweet| %>
         <p><%= tweet.content %></p>
-        <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-success' %>
-        <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+        <p>更新日時<%= tweet.updated_at %></p>
+        <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
+        <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>
       <% end %>
     </div>
   </div>
 </div>
-
