@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-    resources :tweets, only: [:index, :new, :create, :edit, :update ,:destroy] do
+  devise_for :users
+  
+  resources :tweets, only: [:index, :new, :create, :edit, :update ,:destroy] do
     collection do
       post :confirm
     end
