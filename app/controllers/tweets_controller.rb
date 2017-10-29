@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweets_params)
     if @tweet.save
       redirect_to tweets_path, notice: "つぶやきました！"
+      NoticeMailer.sendmail_tweet(@tweet).deliver
     else
       render 'new'
     end
