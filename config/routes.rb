@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   
   resources :tweets, only: [:index, :new, :create, :edit, :update ,:destroy] do
     collection do
