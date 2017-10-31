@@ -13,6 +13,9 @@
       </ul>
     </div>
   <% end %>
+
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
   
   <%= f.label :つぶやき %>
   <%= f.text_field :content, class: 'form-control' %>
