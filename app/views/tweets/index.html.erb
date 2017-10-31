@@ -2,14 +2,20 @@
   <div class="row">
     <div class="col-md-12 col-sm-12">
       <p><%= notice %></p>
-      <h1>つぶやき一覧</h1>
-      <%= link_to "つぶやく", new_tweet_path, class: 'btn btn-primary' %>
+      <h1>一覧</h1>
+      <%= link_to "投稿", new_tweet_path, class: 'btn btn-primary' %>
       <% @tweets.reverse_each do |tweet| %>
        <div class="wrapper">
+        <p>
+          <%= profile_img(tweet.user) %>
+          <%= tweet.user.name %>が投稿しました
+        </p>
         <p><%= tweet.content %></p>
         <p>更新日時<%= tweet.updated_at %></p>
-        <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
-        <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>
+        <% if current_user.id == tweet.user_id %>
+         <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
+         <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>
+        <% end %>
        </div>
       <% end %>
     </div>

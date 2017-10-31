@@ -16,6 +16,7 @@ class TweetsController < ApplicationController
   
   def create
     @tweet = Tweet.new(tweets_params)
+    @tweet.user_id = current_user.id
     if @tweet.save
       redirect_to tweets_path, notice: "つぶやきました！"
       NoticeMailer.sendmail_tweet(@tweet).deliver
