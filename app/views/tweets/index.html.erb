@@ -8,14 +8,16 @@
        <div class="wrapper">
         <p>
           <%= profile_img(tweet.user) %>
-          <%= tweet.user.name %>が投稿しました
+          <%= tweet.user.name %>
+          更新日時<%= tweet.updated_at %>
+          <% if current_user.id == tweet.user_id %>
+            <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
+            <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>
+          <% end %>
         </p>
+        <p><%= image_tag tweet.image_url %></p>
         <p><%= tweet.content %></p>
-        <p>更新日時<%= tweet.updated_at %></p>
-        <% if current_user.id == tweet.user_id %>
-         <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
-         <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>
-        <% end %>
+
        </div>
       <% end %>
     </div>
