@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweets_params)
     @tweet.user_id = current_user.id
     if @tweet.save
-      redirect_to tweets_path, notice: "つぶやきました！"
+      redirect_to tweets_path, notice: "投稿しました！"
       NoticeMailer.sendmail_tweet(@tweet).deliver
     else
       render 'new'
@@ -32,13 +32,13 @@ class TweetsController < ApplicationController
   def update
     set_tweet
     @tweet.update(tweets_params)
-    redirect_to tweets_path, notice: "つぶやきを編集しました！"
+    redirect_to tweets_path, notice: "編集しました！"
   end
   
   def destroy
     set_tweet
     @tweet.destroy
-    redirect_to tweets_path, notice: "つぶやきを削除しました！"
+    redirect_to tweets_path, notice: "削除しました！"
   end
 
   def confirm
