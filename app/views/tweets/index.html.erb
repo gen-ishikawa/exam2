@@ -10,6 +10,8 @@
           <%= profile_img(tweet.user) %>
           <%= tweet.user.name %>
           更新日時<%= tweet.updated_at %>
+          
+          <%= link_to "詳細", tweet_path(tweet), class: 'btn btn-default btn-sm btn-success' %>
           <% if current_user.id == tweet.user_id %>
             <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
             <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>

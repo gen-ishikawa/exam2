@@ -5,6 +5,12 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
   end
+    
+  def show
+    set_tweet
+    @comment = @tweet.comments.build
+    @comments = @tweet.comments
+  end
   
   def new
     if params[:back]

@@ -5,11 +5,15 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   
-  resources :tweets, only: [:index, :new, :create, :edit, :update ,:destroy] do
-    collection do
-      post :confirm
-    end
-    
+  #resources :tweets, only: [:index, :new, :create, :edit, :update ,:destroy] do
+  #  collection do
+  #    post :confirm
+  #  end
+  #end
+  
+  resources :tweets do
+    resources :comments
+    post :confirm, on: :collection
   end
   
   root 'top#index'
