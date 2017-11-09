@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12 col-sm-12">
       <p><%= notice %></p>
-      <h1>一覧</h1>
+      <h1>トピック一覧</h1>
       <%= link_to "投稿", new_tweet_path, class: 'btn btn-primary' %>
       <% @tweets.reverse_each do |tweet| %>
        <div class="wrapper">
