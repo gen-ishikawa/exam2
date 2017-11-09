@@ -13,6 +13,7 @@
          <p><%= image_tag tweet.image_url %></p>
          <p class="left"><%= tweet.content %></p>
          <p class="right">
+            <%= link_to "詳細", tweet_path(tweet), class: 'btn btn-default btn-sm btn-success' %>
             <% if current_user.id == tweet.user_id %>
               <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-info' %>
               <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-warning' %>
