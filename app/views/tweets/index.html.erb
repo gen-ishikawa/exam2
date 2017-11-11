@@ -10,8 +10,8 @@
            <%= profile_img(tweet.user) %>
            <%= tweet.user.name %>が投稿しました
          </p>
+         <h3 class="left"><%= tweet.content %></h3>
          <p><%= image_tag tweet.image_url %></p>
-         <p class="left"><%= tweet.content %></p>
          <p class="right">
             <%= link_to "詳細", tweet_path(tweet), class: 'btn btn-default btn-sm btn-success' %>
             <% if current_user.id == tweet.user_id %>
