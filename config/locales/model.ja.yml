@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      tweet: "つぶやき"
+      tweet: "トピック"
     attributes:
       tweet:
-        content: "つぶやき"
+        content: "トピック"
