@@ -6,6 +6,7 @@ class PlacecommentsController < ApplicationController
     # クライアント要求に応じてフォーマットを変更
     respond_to do |format|
       if @comment.save
+        #binding.pry
         format.html { redirect_to place_path(@place), notice: 'コメントを投稿しました。' }
         # JS形式でレスポンスを返します。
         format.js { render :index }

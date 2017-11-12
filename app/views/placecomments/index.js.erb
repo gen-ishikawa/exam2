@@ -1,2 +1,2 @@
-$("#comments_area").html("<%= j(render 'placecomments/index', { comments: @comment.place.comments, place: @comment.place }) %>")
+$("#comments_area").html("<%= j(render 'placecomments/index', { comments: @comment.place.placecomments, place: @comment.place }) %>")
 $(':text').val('')
