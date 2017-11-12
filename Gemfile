@@ -77,3 +77,5 @@ gem 'dotenv-rails'
 gem 'unicorn'
 
 gem 'faker'
+
+gem 'gmaps4rails'
