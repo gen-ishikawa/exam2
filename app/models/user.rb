@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  has_many :places, dependent: :destroy
+  
+  
   #指定のユーザをフォローする
   def follow!(other_user)
     relationships.create!(followed_id: other_user.id)
