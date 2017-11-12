@@ -6,7 +6,7 @@
       <%= f.hidden_field :image_cache %>
       <%= f.hidden_field :content %>
       <p><%= image_tag @tweet.image_url %></p>
-      <p>コメント:<%= @tweet.content %></p>
+      <p>トピック:<%= @tweet.content %></p>
       <%= f.submit "登録",class: 'btn btn-primary btn-block' %>
     <% end %>
     <%= form_for(@tweet, url: new_tweet_path, method: 'get') do |f| %>
