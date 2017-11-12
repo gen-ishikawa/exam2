@@ -6,26 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times do |n|
-  email = Faker::Internet.email
-  password = "pass123"
-  name = Faker::Name.name
-  User.create!(email: email,
-               password: password,
-               password_confirmation: password,
-               name: name,
-               uid: n
-               )
-end
+#5.times do |n|
+#  email = Faker::Internet.email
+#  password = "pass123"
+#  name = Faker::Name.name
+#  User.create!(email: email,
+#               password: password,
+#               password_confirmation: password,
+#               name: name,
+#               uid: n
+#               )
+#end
 
-users = User.all
+#users = User.all
 
-users.each do |user| 
-  user.tweets.create(content: Faker::Food.dish) 
-end
+#users.each do |user| 
+#  user.tweets.create(content: Faker::Food.dish) 
+#end
 
-tweets = Tweet.all
+#tweets = Tweet.all
 
-tweets.each do |tweet|
-  tweet.comments.create(content: Faker::Food.dish, user_id:1)
-end
+#tweets.each do |tweet|
+#  tweet.comments.create(content: Faker::Food.dish, user_id:1)
+#end
