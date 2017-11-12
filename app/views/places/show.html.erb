@@ -21,6 +21,11 @@
     <%= @place.name %> (<%= @place.description %>)
   </strong>
 </h3>
+<p>コメント一覧</p>
+<div id="comments_area">
+  <%= render partial: 'placecomments/index', locals: { comments: @comments, place: @place } %>
+</div>
+<%= render partial: 'placecomments/form', locals: { comment: @comment, place: @place } %>
 
 <% if current_user.id == @place.user_id %>
   <%= link_to 'Edit', edit_place_path(@place) %> |

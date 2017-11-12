@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :places
+  resources :places do
+    resources :placecomments
+    post :confirm, on: :collection
+  end
   #get 'relationships/create'
 
   #get 'relationships/destroy'

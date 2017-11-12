@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_many :places, dependent: :destroy
-  
+  has_many :placecomments, dependent: :destroy
   
   #指定のユーザをフォローする
   def follow!(other_user)
