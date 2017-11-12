@@ -1,7 +1,7 @@
 <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Places</h1>
+<h1>少年野球グランド情報</h1>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
@@ -14,17 +14,19 @@
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
+      handler.getMap().setCenter(new google.maps.LatLng(35.711943, 139.943215));
+      handler.getMap().setZoom(12);
     });
 </script>
 <br>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>User</th>
+      <th>グランド名</th>
+      <th>チーム名など</th>
+      <th>緯度</th>
+      <th>経度</th>
+      <th>登録者</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -38,8 +40,10 @@
         <td><%= place.longitude %></td>
         <td><%= place.user_id %></td>
         <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == place.user_id %>
+          <td><%= link_to 'Edit', edit_place_path(place) %></td>
+          <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
