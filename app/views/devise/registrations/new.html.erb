@@ -1,8 +1,8 @@
 <div class="container">
   <div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
-    <h2>サインアップ</h2>
-
     <%= alert %>
+
+    <h2>メールでサインアップ</h2>
 
     <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= devise_error_messages! %>
@@ -24,10 +24,23 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "サインアップ", class: "btn btn-primary btn-block" %>
+        <%= f.submit "サインアップ", class: "btn btn-warning btn-block" %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to "もう一度、招待メールを送る", new_confirmation_path(resource_name) %><br />
+    <% end -%>
+    
+    <br>
+    <h2>SNSでサインアップ</h2>
+    <div class="btn btn-block btn-social btn-facebook">
+      <span class="fa fa-facebook"></span>
+      <%= link_to "Facebook でサインイン", omniauth_authorize_path(resource_name, :facebook) %>
+    </div>
+    
+    <div class="btn btn-block btn-social btn-twitter">
+      <span class="fa fa-twitter"></span>
+      <%= link_to "Twitter でサインイン", omniauth_authorize_path(resource_name, :twitter) %>
+    </div>
   </div>
 </div>
