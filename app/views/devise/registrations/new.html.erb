@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
+  <div class="wrapper col-md-4 col-md-offset-4 col-sm-12">
     <%= alert %>
 
-    <h2>メールでサインアップ</h2>
+    <h3>メールで登録</h3>
 
     <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= devise_error_messages! %>
@@ -24,23 +24,26 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "サインアップ", class: "btn btn-warning btn-block" %>
+        <%= f.submit "登録", class: "btn btn-warning btn-block" %>
       </div>
     <% end %>
     <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-      <%= link_to "もう一度、招待メールを送る", new_confirmation_path(resource_name) %><br />
+      <%= link_to "もう一度、確認メールを送る", new_confirmation_path(resource_name) %><br />
     <% end -%>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+　　  <%= link_to "パスワード忘れはこちら", new_password_path(resource_name) %><br />
+　　<% end -%>
     
     <br>
-    <h2>SNSでサインアップ</h2>
+    <h3>SNSで登録</h3>
     <div class="btn btn-block btn-social btn-facebook">
       <span class="fa fa-facebook"></span>
-      <%= link_to "Facebook でサインイン", omniauth_authorize_path(resource_name, :facebook) %>
+      <%= link_to "Facebook で登録", omniauth_authorize_path(resource_name, :facebook) %>
     </div>
     
     <div class="btn btn-block btn-social btn-twitter">
       <span class="fa fa-twitter"></span>
-      <%= link_to "Twitter でサインイン", omniauth_authorize_path(resource_name, :twitter) %>
+      <%= link_to "Twitter で登録", omniauth_authorize_path(resource_name, :twitter) %>
     </div>
   </div>
 </div>
