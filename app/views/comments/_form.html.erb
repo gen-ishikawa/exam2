@@ -1,13 +1,11 @@
 <%= form_for([tweet,comment], remote: true) do |f| %>
   <% if comment.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" >
       <h2><%= comment.errors.count %>件のエラーがあります。</h2>
-
-      <ul>
       <% comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-      </ul>
+      
     </div>
   <% end %>
   <%= f.hidden_field :tweet_id %>
