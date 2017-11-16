@@ -12,26 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "グランド名"  %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :description, autofocus: true, class: "form-control", placeholder: "チーム名など" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :latitude, autofocus: true, class: "form-control", placeholder: "緯度" %>
   </div>
   <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+    <%= f.text_field :longitude, autofocus: true, class: "form-control", placeholder: "経度" %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "登録", class: "btn btn-warning btn-block" %>
   </div>
 <% end %>

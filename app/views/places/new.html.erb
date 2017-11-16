@@ -1,5 +1,10 @@
-<h1>New Place</h1>
+<div class="container">
+  <div class="wrapper col-md-4 col-md-offset-4 col-sm-12">
+    <%= alert %>
+    <h3>新しいグランド</h3>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', places_path %>
+    <%= render 'form' %>
+    <br>
+    <%= link_to '戻る', places_path, class: 'btn btn-default btn-sm btn-info' %>
+  </div>
+</div>
