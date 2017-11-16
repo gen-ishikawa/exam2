@@ -33,9 +33,4 @@
   <%= render partial: 'placecomments/index', locals: { comments: @comments, place: @place } %>
 </div>
 <%= render partial: 'placecomments/form', locals: { comment: @comment, place: @place } %>
-
-<% if current_user.id == @place.user_id %>
-  <%= link_to 'Edit', edit_place_path(@place) %> |
-<% end %>
-<%= link_to 'Back', places_path %>
 </div>
