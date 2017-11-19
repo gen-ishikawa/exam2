@@ -2,6 +2,14 @@ ja:
   activerecord:
     models:
       tweet: "トピック"
+      place: "場所"
     attributes:
       tweet:
         content: "トピック"
+      place:
+        name: "グランド名"
+        description: "チーム名など"
+        latitude: "緯度"
+        longitude: "経度"
+        information: "情報"
+        address: "住所"
