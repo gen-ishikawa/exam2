@@ -30,7 +30,7 @@
 #  tweet.comments.create(content: Faker::Food.dish, user_id:1)
 #end
 Place.create([
-  { name: '小栗原小', description: '小栗原ベアーズ', latitude: '35.711943', longitude: '139.943215', user_id: 1 },
-  { name: '高瀬グランド', description: '船橋市営', latitude: '35.6725817', longitude: '139.9965212', user_id: 1 },
+  { name: '小栗原小', description: '小栗原ベアーズ', latitude: '35.711943', longitude: '139.943215', user_id: 1, address: '船橋市本中山3-16-12', information: 'ライトが狭い'},
+  { name: '高瀬グランド', description: '船橋市営', latitude: '35.6725817', longitude: '139.9965212', user_id: 1, address: '船橋市高瀬町62-4', information: '公式戦の会場'}
 ])
 

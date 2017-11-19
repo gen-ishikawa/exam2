@@ -24,6 +24,12 @@
   <div class="field">
     <%= f.text_field :longitude, autofocus: true, class: "form-control", placeholder: "経度" %>
   </div>
+  <div class="field">
+    <%= f.text_field :address, autofocus: true, class: "form-control", placeholder: "住所" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :information, autofocus: true, class: "form-control", placeholder: "情報" %>
+  </div>
   <br>
   <div class="actions">
     <%= f.submit "登録", class: "btn btn-warning btn-block" %>

@@ -22,15 +22,29 @@
       <%= @place.name %> (<%= @place.description %>)
     </strong>
   </h3>
+  <h4>
+    <strong>
+      <%= @place.address %>
+    </strong>
+  </h4>
+  <h4>
+    <strong>
+      <%= @place.information %>
+    </strong>
+  </h4>
   <%= profile_img(@place.user) %>
   <%= @place.user.name %>が投稿しました
   <% if current_user.id == @place.user_id %>
+    <p class="right">
 　  　<%= link_to '', edit_place_path(@place), class: "fa fa-pencil-square-o fa-lg"  %>
       <%= link_to '', @place, class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
+    </p>
   <% end %>
-  <p>コメント一覧</p>
+  <h4><strong>コメント一覧</strong></h4>
   <div id="comments_area">
     <%= render partial: 'placecomments/index', locals: { comments: @comments, place: @place } %>
   </div>
   <%= render partial: 'placecomments/form', locals: { comment: @comment, place: @place } %>
+  <br>
+  <%= link_to '一覧', places_path, class: 'btn btn-default btn-sm btn-info' %>
 </div>
